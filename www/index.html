@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本地数据交互系统</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1><span class="icon">📊</span> Sphinx-1.0 本地面试系统</h1>
+            <div class="app-info">批处理版本 | 日志记录中</div>
+        </header>
+        
+        <main class="app-content">
+            <section class="data-section">
+                <div class="section-header">
+                    <h2><span class="icon">📤</span> 信息提交</h2>
+                </div>
+                <textarea id="inputText" class="data-input" placeholder="请输入要发送的文本内容..."></textarea>
+                <div class="action-bar">
+                    <button id="sendButton" class="btn-primary">
+                        <span class="icon">✉️</span> 发送信息
+                    </button>
+                    <span id="sendStatus" class="status-text">准备发送数据...</span>
+                </div>
+            </section>
+            
+            <section class="data-section">
+                <div class="section-header">
+                    <h2><span class="icon">📥</span> 服务器响应</h2>
+                    <label class="auto-update-toggle">
+                        <input type="checkbox" id="autoUpdate" checked>
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label">自动更新</span>
+                    </label>
+                </div>
+                <div id="response" class="response-box"></div>
+                <div class="status-bar">
+                    <span id="receiveStatus" class="status-text">等待服务器响应...</span>
+                    <button id="viewLogs" class="btn-secondary">查看日志</button>
+                </div>
+            </section>
+            
+            <section class="log-section" id="logSection">
+                <div class="section-header">
+                    <h2><span class="icon">📝</span> 系统日志</h2>
+                </div>
+                <div id="logContent" class="log-content"></div>
+            </section>
+        </main>
+    </div>
+    <footer class="app-footer">
+            <div class="footer-content">
+                <div class="footer-item">
+                    <span class="icon">©</span> Sphinx Interview System
+                </div>
+                <div class="footer-item">
+                    <span class="icon">date:</span> <span id="currentDate"></span>
+                </div>
+                <div class="footer-item">
+                    <span class="icon"></span> GitHub | Email | Twitter
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // 显示当前日期
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString('zh-CN', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit'
+        });
+    </script>
+</body>
+</html>
